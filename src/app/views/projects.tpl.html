@@ -1,0 +1,6 @@
+<div class="projects-list">
+    <div class="projects-list__title">Projects <button ng-click="addProjectBar()">+</button></div>
+    <ul>
+        <li ng-repeat="item in projects" ng-class="{'active' : $parent.project == item.Project}" ng-click="$parent.project = item.Project">{{item.Project.title}}<span>{{item.Project.task_count}}</span></li>
+    </ul>
+</div>

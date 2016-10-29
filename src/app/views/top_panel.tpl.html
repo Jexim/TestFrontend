@@ -1,0 +1,16 @@
+<md-input-container class="search" aria-label="search">
+    <input type="text" ng-model="search" required>
+</md-input-container>
+<md-menu>
+    <md-button aria-label="Open phone interactions menu" class="md-icon-button" ng-click="openMenu($mdOpenMenu, $event)">
+        <i class="material-icons">more_horiz</i>
+    </md-button>
+    <md-menu-content width="4">
+        <md-menu-item>
+            <md-button ng-click="editProjectBar()">Edit project</md-button>
+        </md-menu-item>
+        <md-menu-item>
+            <md-button ng-click="deleteProject()">Delete project</md-button>
+        </md-menu-item>
+    </md-menu-content>
+</md-menu>
