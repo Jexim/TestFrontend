@@ -1,0 +1,10 @@
+<md-input-container>
+    <label>Create new task</label>
+    <input type="text" placeholder="Task name" ng-model="$parent.newTask.title">
+</md-input-container>
+<md-input-container>
+    <input type="text" placeholder="Description" ng-model="$parent.newTask.description">
+</md-input-container>
+<md-button class="md-fab md-primary md-hue-2 button-done" ng-click="addTask()">
+    <i class="material-icons">done</i>
+</md-button>
