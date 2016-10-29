@@ -16,11 +16,11 @@ var gulp = require('gulp'),
 
 var path = {
     build: {
-        html: 'build/',
-        js: 'build/assets/scripts/',
-        css: 'build/assets/style/',
-        img: 'build/assets/images/',
-        fonts: 'build/assets/fonts/'
+        html: 'docs/',
+        js: 'docs/assets/scripts/',
+        css: 'docs/assets/style/',
+        img: 'docs/assets/images/',
+        fonts: 'docs/assets/fonts/'
     },
     src: {
         html: ['src/**.html', 'src/app/*/**.html'],
@@ -57,7 +57,7 @@ gulp.task('webserver', function() {
 });
 
 gulp.task('openbrowser', function() {
-    opn( 'http://' + server.host + ':' + server.port + '/build' );
+    opn( 'http://' + server.host + ':' + server.port + '/docs' );
 });
 
 gulp.task('html:build', function () {
