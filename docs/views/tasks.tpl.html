@@ -2,7 +2,7 @@
     <div ng-repeat="value in tasks">
         <div class="tasks_block__time">{{value[0].date}}</div>
         <div class="tasks_block__container">
-            <div class="tasks_item" ng-repeat="item in value" infinite-scroll="loadMoreTasks()" infinite-scroll-distance="1">
+            <div class="tasks_item" ng-repeat="item in value">
                 <md-radio-group aria-label="done">
                     <md-radio-button value="{{item.title}}" ng-click="compliteTask(item.id)"></md-radio-button>
                 </md-radio-group>
@@ -10,6 +10,7 @@
             </div>
         </div>
     </div>
+    <md-button class="md-primary md-hue-1 loading-more" ng-click="loadMoreTasks()" ng-show="!isAllTasks && countTask">Loading more...</md-button>
 </div>
 <md-button class="md-fab md-primary md-hue-2 add-task" ng-click="addTaskBar()">
     <i class="material-icons">add</i>

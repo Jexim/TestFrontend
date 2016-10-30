@@ -2,13 +2,12 @@
  * Created by Jexim on 19.10.16.
  */
 
-var app = angular.module('TestFrontend', ['ngMaterial', 'ngCookies', 'infinite-scroll']);
+var app = angular.module('TestFrontend', ['ngMaterial', 'ngCookies']);
 
 app.controller('MainCtrl', function ($scope, $mdSidenav, $cookies, Account, Project, Task){
 
     $scope.loading = true;
-    $scope.stepTask = 1;
-    $scope.sizeTask = 10;
+    $scope.stepTask = 3;
     $scope.isAllTasks = false;
     $scope.countTask = 0;
     $scope.project = { id: 0 };
@@ -48,6 +47,7 @@ app.controller('MainCtrl', function ($scope, $mdSidenav, $cookies, Account, Proj
     });
 
     $scope.addProjectBar = function() {
+        delete $scope.newProject;
         $scope.toggleRight();
         $scope.rightBar = 'views/project_add.tpl.html';
     };
@@ -62,9 +62,26 @@ app.controller('MainCtrl', function ($scope, $mdSidenav, $cookies, Account, Proj
         });
     };
 
+    $scope.editProjectBar  = function() {
+        $scope.toggleRight();
+        $scope.project.newTitle = $scope.project.title;
+        $scope.rightBar = 'views/project_edit.tpl.html';
+    };
+
+
+    $scope.addTaskBar  = function() {
+        delete $scope.newTask;
+        $scope.toggleRight();
+        $scope.rightBar = 'views/task_add.tpl.html';
+    };
+
+    $scope.editTaskBar = function() {
+        $scope.rightBar = 'views/task_edit.tpl.html';
+    };
+
     $scope.addProject = function() {
         $scope.loading = true;
-        Project.createProject($cookies.get('userSessionKey'), $scope.project_title, function(data) {
+        Project.createProject($cookies.get('userSessionKey'), $scope.newProject.title, function(data) {
             getProjects();
             $scope.toggleRight();
             $scope.loading = false;
@@ -76,29 +93,19 @@ app.controller('MainCtrl', function ($scope, $mdSidenav, $cookies, Account, Proj
         Project.deleteProject($cookies.get('userSessionKey'), $scope.project.id, function(data) {
             getProjects();
             $scope.loading = false;
+            $scope.content = 'views/select_project.tpl.html';
         });
-    };
-
-    $scope.editProjectBar  = function() {
-        $scope.toggleRight();
-        $scope.project.newTitle = $scope.project.title;
-        $scope.rightBar = 'views/project_edit.tpl.html';
     };
 
     $scope.editProject = function() {
         $scope.loading = true;
-        Project.updateProject($cookies.get('userSessionKey'), $scope.project.id, $scope.project.newTitle, function(data) {
+        Project.updateProject($cookies.get('userSessionKey'), $scope.project.id, $scope.project.title, function(data) {
             getProjects();
             $scope.toggleRight();
             $scope.loading = false;
         });
     };
 
-    $scope.addTaskBar  = function() {
-        $scope.newTask = null;
-        $scope.toggleRight();
-        $scope.rightBar = 'views/task_add.tpl.html';
-    };
 
     $scope.addTask  = function() {
         $scope.loading = true;
@@ -114,10 +121,6 @@ app.controller('MainCtrl', function ($scope, $mdSidenav, $cookies, Account, Proj
                 $scope.loading = false;
             }
         );
-    };
-
-    $scope.editTaskBar = function() {
-        $scope.rightBar = 'views/task_edit.tpl.html';
     };
 
     $scope.editTask = function() {
@@ -155,12 +158,12 @@ app.controller('MainCtrl', function ($scope, $mdSidenav, $cookies, Account, Proj
     };
 
     $scope.loadMoreTasks = function () {
-        //if(!$scope.isAllTasks){
-        //    $scope.sizeTask = $scope.sizeTask + $scope.stepTask;
-        //    if($scope.sizeTask > $scope.countTask)
-        //        $scope.sizeTask = $scope.countTask;
-        //    getTasks();
-        //}
+        if(!$scope.isAllTasks){
+            $scope.sizeTask = $scope.sizeTask + $scope.stepTask;
+            if($scope.sizeTask > $scope.countTask)
+                $scope.sizeTask = $scope.countTask;
+            getTasks();
+        }
     };
 
     $scope.openMenu = function($mdOpenMenu, ev) {
@@ -171,18 +174,14 @@ app.controller('MainCtrl', function ($scope, $mdSidenav, $cookies, Account, Proj
     $scope.toggleRight = buildToggler('right');
 
     function getAccountData() {
-        $scope.loading = true;
         Account.fetchAccount($cookies.get('userSessionKey'), function(data) {
             $scope.account = data;
-            $scope.loading = false;
         });
     }
 
     function getProjects() {
-        $scope.loading = true;
         Project.fetchProjects($cookies.get('userSessionKey'), function(data) {
             $scope.projects = data;
-            $scope.loading = false;
         });
     }
 
@@ -198,7 +197,7 @@ app.controller('MainCtrl', function ($scope, $mdSidenav, $cookies, Account, Proj
                 $scope.search,
                 function(data) {
                     $scope.tasks = data.tasks;
-                    if($scope.sizeTask > data.total_count)
+                    if($scope.sizeTask >= data.total_count)
                         $scope.isAllTasks = true;
                     $scope.countTask = data.total_count;
                     $scope.loading = false;

@@ -12,7 +12,9 @@ body{
   font-size: 15px;
 }
 
-*:focus { outline: none; }
+*:focus{
+  outline: none;
+}
 
 .progress-container{
   display: block;
@@ -108,7 +110,6 @@ body{
 
 md-content{
   background-color : #f7f7f7;
-  padding-bottom: 36px;
   .top_panel{
     position: relative;
     z-index: 1;
@@ -120,9 +121,6 @@ md-content{
       input{
         height: 50px;
         padding: 0 50px 0 20px;
-        &:focus{
-          background: none;
-        }
         &:invalid{
           border-color: #ddd;
           background: url('../images/icon_search.png') 20px no-repeat;
@@ -147,6 +145,14 @@ md-content{
     position: fixed;
     bottom: 32px;
     right: 32px;
+  }
+  main{
+    height: calc(100% - 50px);
+    overflow: scroll;
+    padding-bottom: 36px;
+    .loading-more{
+      margin: 10px auto;
+    }
   }
 }
 
@@ -230,7 +236,7 @@ md-content{
       font-size: 18px;
       margin-bottom: 16px;
     }
-    input{
+    input, textarea{
       color: #fff;
       border-color: #fff;
       @include placeholder(){
@@ -239,8 +245,16 @@ md-content{
       }
     }
     &.md-input-focused{
-      input{
-        border-color: #fff;
+      input, textarea{
+        border-color: #fff !important;
+      }
+      label{
+        color: #fff !important;
+      }
+    }
+    &.md-input-has-value{
+      label{
+        color: #fff !important;
       }
     }
   }

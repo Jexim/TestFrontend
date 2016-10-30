@@ -1,7 +1,9 @@
-<md-input-container>
-    <label>Create new project</label>
-    <input type="text" placeholder="Project name" ng-model="$parent.project_title">
-</md-input-container>
-<md-button class="md-fab md-primary md-hue-2 button-done" ng-click="addProject()">
-    <i class="material-icons">done</i>
-</md-button>
+<form ng-submit="addProject()">
+    <md-input-container>
+        <label>Create new project</label>
+        <input type="text" placeholder="Project name" ng-model="$parent.newProject.title" required>
+    </md-input-container>
+    <md-button class="md-fab md-primary md-hue-2 button-done" type="submit">
+        <i class="material-icons">done</i>
+    </md-button>
+</form>
