@@ -37,7 +37,6 @@ app.controller('MainCtrl', function ($scope, $mdSidenav, $cookies, Account, Proj
     });
 
     $scope.$watch('search', function() {
-        $scope.isAllTasks = false;
         getTasks();
     });
 
@@ -201,8 +200,7 @@ app.controller('MainCtrl', function ($scope, $mdSidenav, $cookies, Account, Proj
                 $scope.search,
                 function(data) {
                     $scope.tasks = data.tasks;
-                    if($scope.sizeTask >= data.total_count)
-                        $scope.isAllTasks = true;
+                    $scope.sizeTask >= data.total_count ? $scope.isAllTasks = true : $scope.isAllTasks = false;
                     $scope.countTask = data.total_count;
                     $scope.loading = false;
                 }
