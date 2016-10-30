@@ -84,7 +84,7 @@ app.controller('MainCtrl', function ($scope, $mdSidenav, $cookies, Account, Proj
 
     $scope.addProject = function() {
         $scope.loading = true;
-        Project.createProject($cookies.get('userSessionKey'), $scope.newProject.title, function(data) {
+        Project.createProject($cookies.get('userSessionKey'), $scope.newProject.title, function() {
             getProjects();
             $scope.toggleRight();
             $scope.loading = false;
@@ -93,7 +93,7 @@ app.controller('MainCtrl', function ($scope, $mdSidenav, $cookies, Account, Proj
 
     $scope.deleteProject = function() {
         $scope.loading = true;
-        Project.deleteProject($cookies.get('userSessionKey'), $scope.project.id, function(data) {
+        Project.deleteProject($cookies.get('userSessionKey'), $scope.project.id, function() {
             getProjects();
             $scope.loading = false;
             $scope.content = 'views/select_project.tpl.html';
@@ -102,9 +102,10 @@ app.controller('MainCtrl', function ($scope, $mdSidenav, $cookies, Account, Proj
 
     $scope.editProject = function() {
         $scope.loading = true;
-        Project.updateProject($cookies.get('userSessionKey'), $scope.project.id, $scope.project.title, function(data) {
+        Project.updateProject($cookies.get('userSessionKey'), $scope.project.id, $scope.project.newTitle, function() {
             getProjects();
             $scope.toggleRight();
+            $scope.project.title = $scope.project.newTitle;
             $scope.loading = false;
         });
     };
