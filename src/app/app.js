@@ -8,7 +8,6 @@ app.controller('MainCtrl', function ($scope, $mdSidenav, $cookies, Account, Proj
 
     $scope.loading = true;
     $scope.stepTask = 3;
-    $scope.isAllTasks = false;
     $scope.countTask = 0;
     $scope.project = { id: 0 };
 
