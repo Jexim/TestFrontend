@@ -13,22 +13,6 @@ app.controller('MainCtrl', function ($scope, $mdSidenav, $cookies, Account, Proj
     $scope.countTask = 0;
     $scope.project = { id: 0 };
 
-    $scope.$watch('project.id', function() {
-        $scope.isAllTasks = false;
-        $scope.sizeTask = 10;
-        getTasks();
-    });
-
-    $scope.$watch('search', function() {
-        getTasks();
-    });
-
-    $scope.$watch('tasks', function () {
-        if($scope.project.id != 0 && $scope.countTask == 0){
-            $scope.content = 'views/tasks_not.tpl.html';
-        }
-    });
-
     if(typeof $cookies.get('userSessionKey') != 'string'){
         $scope.loading = true;
         Account.createNewUser(function(data){
@@ -46,6 +30,22 @@ app.controller('MainCtrl', function ($scope, $mdSidenav, $cookies, Account, Proj
             $scope.loading = false;
         });
     }
+
+    $scope.$watch('project.id', function() {
+        $scope.isAllTasks = false;
+        $scope.sizeTask = 10;
+        getTasks();
+    });
+
+    $scope.$watch('search', function() {
+        getTasks();
+    });
+
+    $scope.$watch('tasks', function () {
+        if($scope.project.id != 0 && $scope.countTask == 0){
+            $scope.content = 'views/tasks_not.tpl.html';
+        }
+    });
 
     $scope.addProjectBar = function() {
         $scope.toggleRight();
