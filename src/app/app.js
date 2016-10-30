@@ -30,7 +30,7 @@ app.controller('MainCtrl', function ($scope, $mdSidenav, $cookies, Account, Proj
     }
 
     $scope.$watch('project.id', function() {
-        $scope.sizeTask = 10;
+        $scope.sizeTask = 13;
         $scope.search = null;
         getTasks();
     });
