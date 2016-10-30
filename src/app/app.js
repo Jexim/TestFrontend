@@ -94,6 +94,7 @@ app.controller('MainCtrl', function ($scope, $mdSidenav, $cookies, Account, Proj
         Project.deleteProject($cookies.get('userSessionKey'), $scope.project.id, function() {
             getProjects();
             $scope.loading = false;
+            delete $scope.project;
             $scope.content = 'views/select_project.tpl.html';
         });
     };
