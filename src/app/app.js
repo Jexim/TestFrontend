@@ -37,11 +37,14 @@ app.controller('MainCtrl', function ($scope, $mdSidenav, $cookies, Account, Proj
     });
 
     $scope.$watch('search', function() {
+        $scope.isAllTasks = false;
         getTasks();
     });
 
     $scope.$watch('tasks', function () {
-        if($scope.project.id != 0 && $scope.countTask == 0){
+        if($scope.project.id != 0 && $scope.countTask == 0 && !$scope.search){
+            $scope.content = 'views/tasks_done.tpl.html';
+        } else if($scope.countTask == 0 && $scope.search) {
             $scope.content = 'views/tasks_not.tpl.html';
         }
     });
