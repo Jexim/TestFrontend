@@ -3,8 +3,8 @@
         <div class="tasks_block__time">{{value[0].date}}</div>
         <div class="tasks_block__container">
             <div class="tasks_item" ng-repeat="item in value">
-                <md-radio-group aria-label="done">
-                    <md-radio-button value="{{item.title}}" ng-click="compliteTask(item.id)"></md-radio-button>
+                <md-radio-group>
+                    <md-radio-button aria-label="done" value="{{item.title}}" ng-click="compliteTask(item.id)"></md-radio-button>
                 </md-radio-group>
                 <div ng-click="showTaskBar(item.id)">{{item.title}}</div>
             </div>

@@ -1,8 +1,8 @@
-<md-input-container class="search" aria-label="search" ng-if="countTask || search">
-    <input type="text" ng-model="$parent.$parent.$parent.search" required>
+<md-input-container class="search" ng-if="countTask || search">
+    <input type="text" aria-label="search" ng-model="$parent.$parent.$parent.search" required>
 </md-input-container>
 <md-menu>
-    <md-button aria-label="Open phone interactions menu" class="md-icon-button" ng-click="openMenu($mdOpenMenu, $event)">
+    <md-button class="md-icon-button" ng-click="openMenu($mdOpenMenu, $event)">
         <i class="material-icons">more_horiz</i>
     </md-button>
     <md-menu-content width="4">
