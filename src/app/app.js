@@ -33,6 +33,7 @@ app.controller('MainCtrl', function ($scope, $mdSidenav, $cookies, Account, Proj
     $scope.$watch('project.id', function() {
         $scope.isAllTasks = false;
         $scope.sizeTask = 10;
+        $scope.search = null;
         getTasks();
     });
 
