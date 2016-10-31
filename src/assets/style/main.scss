@@ -142,7 +142,7 @@ md-content{
         height: 50px;
         padding: 0 50px 0 20px;
         &:invalid{
-          border-color: #bdbdbd;
+          border-bottom: 1px solid #bdbdbd;
           background: url('../images/icon_search.png') 20px no-repeat;
           @include image-2x(){
             background: url('../images/icon_search@2x.png') 20px no-repeat;
@@ -152,7 +152,7 @@ md-content{
       }
       &:not(.md-input-invalid).md-input-focused{
         input{
-          border-color: #bdbdbd;
+          border-bottom: 2px solid #bdbdbd;
         }
       }
     }
