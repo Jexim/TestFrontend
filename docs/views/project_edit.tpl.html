@@ -1,9 +1,9 @@
 <form ng-submit="editProject()">
-    <md-input-container>
-        <label>Edit project</label>
+    <h4>Edit project</h4>
+    <md-input-container md-no-float>
         <input type="text" placeholder="Project name" ng-model="$parent.project.newTitle" required>
     </md-input-container>
-    <md-button class="md-fab md-primary md-hue-2 button-done" type="submit">
+    <md-button class="md-fab button-done" type="submit">
         <i class="material-icons">done</i>
     </md-button>
 </form>
