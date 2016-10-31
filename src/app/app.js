@@ -44,7 +44,7 @@ app.controller('MainCtrl', function ($scope, $mdSidenav, $cookies, Account, Proj
     });
 
     $scope.$watch('search', function() {
-        if($scope.search == '')
+        if($scope.search == undefined)
             getTasks();
     });
 
