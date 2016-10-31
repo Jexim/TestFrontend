@@ -35,16 +35,17 @@ app.controller('MainCtrl', function ($scope, $mdSidenav, $cookies, Account, Proj
         getTasks();
     });
 
-    //$scope.$watch('search', function() {
-    //    getTasks();
-    //});
-
     $scope.$watch('tasks', function () {
         if($scope.project.id != 0 && $scope.countTask == 0 && !$scope.search){
             $scope.content = 'views/tasks_done.tpl.html';
         } else if($scope.countTask == 0 && $scope.search) {
             $scope.content = 'views/tasks_not.tpl.html';
         }
+    });
+
+    $scope.$watch('search', function() {
+        if($scope.search == '')
+            getTasks();
     });
 
     $scope.searchTasks = function() {
