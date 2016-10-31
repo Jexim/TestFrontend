@@ -239,13 +239,13 @@ md-content{
   }
 }
 
-.md-sidenav-right{
+.md-sidenav-right {
   width: 35%;
   max-width: 35%;
   background-color: #292c33;
   padding: 32px 75px;
   color: #fff;
-  .sidenav-close{
+  .sidenav-close {
     color: #fff;
     text-align: center;
     background: none;
@@ -254,34 +254,62 @@ md-content{
     position: absolute;
     left: 4px;
     top: 20px;
-    div{
+    div {
       font-size: 10px;
     }
   }
 
-  md-input-container{
+  md-input-container {
     width: 100%;
-    text-align: center;
-    margin: 0;
+    margin: 5px 0;
     color: #fff;
-  }
-
-  md-input-container:not(.md-input-invalid) .md-input {
-    border-color: #fff;
-    color: #fff;
-    @include placeholder() {
+    font-weight: 400;
+    label {
       color: #fff;
+      font-size: 14px;
     }
   }
 
-  md-input-container:not(.md-input-invalid).md-input-focused .md-input {
-    border-color: #cdcdcd;
+  md-input-container:not(.md-input-invalid) {
+    label {
+      &:after {
+        color: #fff !important;
+      }
+    }
+    .md-input {
+      border-color: #fff;
+      color: #fff;
+      @include placeholder() {
+        color: #fff;
+      }
+    }
   }
 
-  md-input-container.md-input-invalid .md-input {
-    border-color: rgba(255, 0, 0, 0.5);
-    @include placeholder() {
-      color: rgba(255, 0, 0, 0.5);
+  md-input-container:not(.md-input-invalid).md-input-focused {
+    label {
+      color: #cdcdcd;
+    }
+    .md-input {
+      border-color: #cdcdcd;
+    }
+  }
+
+  md-input-container.md-input-invalid {
+    label{
+      &:after{
+        color: rgba(255, 0, 0, 0.5);
+      }
+    }
+    .md-input {
+      border-color: rgba(255, 0, 0, 0.5);
+      @include placeholder() {
+        color: rgba(255, 0, 0, 0.5);
+      }
+    }
+  }
+  md-input-container.md-input-has-value {
+    label{
+      color: #fff;
     }
   }
 

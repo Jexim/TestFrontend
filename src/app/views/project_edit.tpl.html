@@ -1,7 +1,12 @@
 <form ng-submit="editProject()">
     <h4>Edit project</h4>
-    <md-input-container md-no-float>
+    <md-input-container>
         <input type="text" placeholder="Project name" ng-model="$parent.project.newTitle" required>
+        <div ng-messages="$parent.newTask.title.$error">
+            <div ng-message="required">
+                This field must not be empty.
+            </div>
+        </div>
     </md-input-container>
     <md-button class="md-fab button-done" type="submit">
         <i class="material-icons">done</i>
