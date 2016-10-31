@@ -35,9 +35,9 @@ app.controller('MainCtrl', function ($scope, $mdSidenav, $cookies, Account, Proj
         getTasks();
     });
 
-    $scope.$watch('search', function() {
-        getTasks();
-    });
+    //$scope.$watch('search', function() {
+    //    getTasks();
+    //});
 
     $scope.$watch('tasks', function () {
         if($scope.project.id != 0 && $scope.countTask == 0 && !$scope.search){
@@ -46,6 +46,10 @@ app.controller('MainCtrl', function ($scope, $mdSidenav, $cookies, Account, Proj
             $scope.content = 'views/tasks_not.tpl.html';
         }
     });
+
+    $scope.searchTasks = function() {
+        getTasks();
+    };
 
     $scope.addProjectBar = function() {
         delete $scope.newProject;
