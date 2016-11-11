@@ -1,8 +1,8 @@
-<form ng-submit="addProject()">
+<form name="addProjectForm" ng-submit="addProject()">
     <h4>Create new project</h4>
     <md-input-container>
-        <input type="text" placeholder="Project name" ng-model="$parent.newProject.title" required>
-        <div ng-messages="$parent.newTask.title.$error">
+        <input type="text" placeholder="Project name" name="projectTitle" ng-model="title" required>
+        <div ng-messages="addProjectForm.projectTitle.$error">
             <div ng-message="required">
                 This field must not be empty.
             </div>

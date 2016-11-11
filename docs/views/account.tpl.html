@@ -1,0 +1,7 @@
+<div class="progress-container" ng-if="!account.data.username">
+    <md-progress-linear md-mode="indeterminate"></md-progress-linear>
+</div>
+<div class="avatar">
+    <img ng-src="{{account.data.image_url}}" class="md-avatar">
+</div>
+<div class="user-name">{{account.data.username}}</div>
