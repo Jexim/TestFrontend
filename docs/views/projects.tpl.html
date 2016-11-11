@@ -1,6 +1,11 @@
 <div class="projects-list">
-    <div class="projects-list__title">Projects <button ng-click="addProjectBar()">+</button></div>
+    <div class="projects-list__title">Projects <button ui-sref="projectAdd">+</button></div>
     <ul>
-        <li ng-repeat="item in projects track by $index" ng-class="{'active' : $parent.project.id == item.Project.id}" ng-click="$parent.project = item.Project">{{item.Project.title}}<span>{{item.Project.task_count}}</span></li>
+        <li ng-repeat="item in projects.items track by $index"
+            ng-click="selectedProject.projectId = item.id"
+            ng-class="{'active' : selectedProject.projectId == item.id}"
+            ui-sref="projects({projectId: item.id})">
+                {{item.title}}<span>{{item.task_count}}</span>
+        </li>
     </ul>
 </div>

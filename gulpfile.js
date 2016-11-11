@@ -23,7 +23,7 @@ var path = {
         fonts: 'docs/assets/fonts/'
     },
     src: {
-        html: ['src/**.html', 'src/app/*/**.html'],
+        html: ['src/**.html', 'src/app/*/**.html', 'src/app/*/*/**.html'],
         js: 'src/app/main.js',
         style: 'src/assets/style/main.scss',
         img: 'src/assets/images/**/*.*',

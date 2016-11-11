@@ -3,11 +3,26 @@
  */
 
 //= ../../bower_components/angular-cookies/angular-cookies.min.js
+//= ../../bower_components/lodash/dist/lodash.min.js
+//= ../../bower_components/restangular/dist/restangular.min.js
+//= ../../bower_components/angular-ui-router/release/angular-ui-router.min.js
 
-//= app.js
-//= services/account.js
-//= services/project.js
-//= services/task.js
+//= app.module.js
+//= app.config.js
 
-//= directive/projects.js
-//= directive/scroll.js
+//= controllers/project-add.controller.js
+//= controllers/project-edit.controller.js
+//= controllers/task-add.controller.js
+//= controllers/task-edit.controller.js
+//= controllers/task.controller.js
+
+//= services/account.service.js
+//= services/project.service.js
+//= services/task.service.js
+
+//= directives/account.directive.js
+//= directives/projects.directive.js
+//= directives/scroll.directive.js
+//= directives/tasks.directive.js
+//= directives/right-bar.directive.js
+//= directives/top-panel.directive.js

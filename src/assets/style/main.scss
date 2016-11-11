@@ -11,27 +11,20 @@ body{
   font-size: 15px;
 }
 
+form{
+  margin-bottom: 0;
+}
+
 *:focus{
   outline: none;
-}
-
-.progress-container{
-  display: block;
-  height: 5px;
-}
-
-.progress-container{
-  position: fixed;
-  top:0;
-  width: 100%;
-  z-index: 999;
-  //display: none;
 }
 
 .button-done{
   position: fixed;
   bottom: 32px;
   right: 32px;
+  display: flex;
+  justify-content: center;
 }
 
 .md-button{
@@ -54,12 +47,19 @@ body{
   padding:20px 30px;
   background-color: #292c33;
   position: relative;
-  user-card{
+  account{
     display: flex;
     flex-direction: row;
     //justify-content: center;
     align-items: center;
     margin-left: 8px;
+    .progress-container{
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 5px;
+      width: 100%;
+    }
     .avatar{
       width: 58px;
       height: 58px;
@@ -140,15 +140,15 @@ md-content{
       height: 50px;
       input{
         height: 50px;
-        padding: 0 50px 0 20px;
-        &:invalid{
+        padding: 0 50px;
+        //&:invalid{
           border-bottom: 1px solid #bdbdbd;
           background: url('../images/icon_search.png') 20px no-repeat;
           @include image-2x(){
             background: url('../images/icon_search@2x.png') 20px no-repeat;
             background-size: 23px 23px;
           }
-        }
+        //}
       }
       &:not(.md-input-invalid).md-input-focused{
         input{
@@ -167,7 +167,7 @@ md-content{
     }
   }
   main{
-    height: calc(100% - 50px);
+    height: calc(100% - 86px);
     overflow: scroll;
     padding-bottom: 36px;
     .loading-more{
