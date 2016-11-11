@@ -11,7 +11,11 @@
                 <div ui-sref="projects.task({taskId: item.id})">{{item.title}}</div>
             </div>
         </div>
-        <md-button class="md-primary md-hue-1 loading-more" ng-click="isNoAll = loadMoreTasks(countLoading)" ng-if="isNoAll && tasks.total_count">Loading more...</md-button>
+        <md-button class="md-primary md-hue-1 loading-more" ng-click="isNoAll = loadMoreTasks(countLoading)" ng-if="isNoAll && tasks.total_count > 10">Loading more...</md-button>
+    </div>
+    <div class="no-tasks" ng-show="!tasks.total_count">
+        <i class="material-icons">playlist_add_check</i>
+        Have a good day
     </div>
     <md-button class="md-fab button-done" ui-sref="projects.taskAdd()">
         <i class="material-icons">add</i>
