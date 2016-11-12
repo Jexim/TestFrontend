@@ -15,3 +15,9 @@
   &:-moz-placeholder           {@content;}/* Firefox 18- */
   &:-ms-input-placeholder      {@content;}
 }
+
+@mixin crop-text() {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
