@@ -1,23 +1,17 @@
-<main when-scrolled="isNoAll = loadMoreTasks(countLoading)">
-    <div class="tasks_block">
-        <div ng-repeat-start="value in dateTasks.items track by $index" class="tasks_block__time">
-            {{value.text_date}}
-        </div>
-        <div ng-repeat-end class="tasks_block__container">
-            <div class="tasks_item" ng-repeat="item in value.items track by $index">
-                <md-radio-group>
-                    <md-radio-button aria-label="done" value="{{item.title}}" ng-click="compliteTask(item.id)"></md-radio-button>
-                </md-radio-group>
-                <div ui-sref="projects.task({taskId: item.id})">{{item.title}}</div>
-            </div>
-        </div>
-        <!--<md-button class="md-primary md-hue-1 loading-more" ng-click="isNoAll = loadMoreTasks(countLoading)" ng-if="isNoAll && tasks.total_count > 10">Loading more...</md-button>-->
+<div class="tasks_block">
+    <div ng-repeat-start="value in dateTasks.items track by $index" class="tasks_block__time">
+        {{value.text_date}}
     </div>
-    <div class="no-tasks" ng-show="!tasks.total_count">
-        <i class="material-icons">playlist_add_check</i>
-        Have a good day
+    <div ng-repeat-end class="tasks_block__container">
+        <div class="tasks_item" ng-repeat="item in value.items track by $index">
+            <md-radio-group>
+                <md-radio-button aria-label="done" value="{{item.title}}" ng-click="compliteTask(item.id)"></md-radio-button>
+            </md-radio-group>
+            <div ui-sref="projects.task({taskId: item.id})">{{item.title}}</div>
+        </div>
     </div>
-    <md-button class="md-fab button-done" ui-sref="projects.taskAdd()">
-        <i class="material-icons">add</i>
-    </md-button>
-</main>
+</div>
+<div class="no-tasks" ng-show="!dateTasks.items.length">
+    <i class="material-icons">playlist_add_check</i>
+    Have a good day
+</div>

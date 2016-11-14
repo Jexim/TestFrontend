@@ -16,7 +16,7 @@ angular.module('TestFrontend')
 
         this.setProjectId = function (id) {
             projectId = id;
-            loadedCount = 10;
+            loadedCount = 15;
             self.condition_keywords = null;
         };
 

@@ -19,7 +19,7 @@ angular.module('TestFrontend')
             url: '/projects/:projectId',
             views: {
                 content: {
-                    template: '<top-panel class="top_panel"></top-panel><task-list></task-list>',
+                    templateUrl: 'views/content.tpl.html',
                 }
             },
             resolve: {

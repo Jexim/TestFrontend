@@ -22,7 +22,6 @@
 
 //= directives/account.directive.js
 //= directives/projects.directive.js
-//= directives/scroll.directive.js
 //= directives/tasks.directive.js
 //= directives/right-bar.directive.js
 //= directives/top-panel.directive.js

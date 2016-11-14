@@ -154,7 +154,7 @@ md-content{
       .search{
         padding: 0;
         margin: 0;
-        width: calc(100% - 96px);
+        width: 400px;
         height: 50px;
         input{
           height: 50px;
@@ -173,9 +173,12 @@ md-content{
     }
   }
   main{
-    height: calc(100% - 86px);
-    overflow: scroll;
-    padding-bottom: 36px;
+    task-list{
+      height: calc(100% - 86px);
+      display: block;
+      overflow: scroll;
+      padding-bottom: 36px;
+    }
     .loading-more{
       margin: 10px auto;
       display: block;
@@ -186,7 +189,7 @@ md-content{
 .tasks_block{
   width: 57%;
   margin: 0 auto;
-  min-height: calc(100vh - 50px);
+  ///min-height: calc(100vh - 50px);
   .tasks_block__time{
     color: #b3bbcb;
     margin: 16px 0 6px 6px;

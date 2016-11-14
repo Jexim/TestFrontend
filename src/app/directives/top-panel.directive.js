@@ -1,5 +1,5 @@
 angular.module('TestFrontend')
-    .directive('topPanel', function() {
+    .directive('topPanel', function($window) {
         return {
             restrict: 'E',
             templateUrl: 'views/top_panel.tpl.html',
@@ -7,6 +7,9 @@ angular.module('TestFrontend')
                 scope.openMenu = function($mdOpenMenu, ev) {
                     originatorEv = ev;
                     $mdOpenMenu(ev);
+                };
+                scope.setSearchFocus = function () {
+                    $window.document.getElementById('search-input').focus();
                 };
             },
             controller: TopPanelController
@@ -26,7 +29,6 @@ function TopPanelController($scope, $state, $stateParams, ProjectService, TaskSe
     };
 
     $scope.$watch('searchText', function() {
-        if($scope.searchText == '')
-            $scope.searchTasks();
+        $scope.searchTasks();
     });
 }
