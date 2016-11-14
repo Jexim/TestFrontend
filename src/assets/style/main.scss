@@ -174,7 +174,7 @@ md-content{
   }
   main{
     task-list{
-      height: calc(100% - 86px);
+      height: calc(100vh - 86px);
       display: block;
       overflow: scroll;
       padding-bottom: 36px;
