@@ -141,12 +141,12 @@ md-content{
       border-bottom: 1px solid #bdbdbd;
       .search-button{
         width: 50px;
-        height: 46px;
+        height: 50px;
         border: none;
-        background: url('../images/icon_search.png') 20px no-repeat;
+        background: url('../images/icon_search.png') center no-repeat;
         float: left;
         @include image-2x(){
-          background: url('../images/icon_search@2x.png') 20px no-repeat;
+          background: url('../images/icon_search@2x.png') center no-repeat;
           background-size: 23px 23px;
         }
       }
@@ -345,7 +345,6 @@ md-content{
     text-align: center;
     margin: 0 0 25px;
     font-weight: 500;
-    @include crop-text();
     padding-right: 8px;
   }
 
