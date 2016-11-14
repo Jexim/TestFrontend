@@ -20,7 +20,7 @@ form{
 }
 
 .button-done{
-  position: fixed;
+  position: absolute;
   bottom: 32px;
   right: 32px;
   display: flex;
@@ -48,10 +48,10 @@ form{
   background-color: #292c33;
   position: relative;
   account{
-    display: flex;
-    flex-direction: row;
+    //display: flex;
+    //flex-direction: row;
     //justify-content: center;
-    align-items: center;
+    //align-items: center;
     margin-left: 8px;
     .progress-container{
       position: absolute;
@@ -66,6 +66,7 @@ form{
       border-radius: 50%;
       overflow: hidden;
       border: 1px solid #fff;
+      display: inline-block;
       img{
         object-fit: cover;
         width: 50px;
@@ -78,6 +79,9 @@ form{
       color: #fff;
       font-size: 15px;
       margin-left: 16px;
+      display: inline-block;
+      vertical-align: top;
+      line-height: 60px;
     }
   }
 
@@ -133,26 +137,27 @@ md-content{
   .top_panel{
     position: relative;
     z-index: 1;
-    .search{
-      padding: 0;
-      margin: 0;
-      width: 100%;
-      height: 50px;
-      input{
-        height: 50px;
-        padding: 0 50px;
-        //&:invalid{
-          border-bottom: 1px solid #bdbdbd;
-          background: url('../images/icon_search.png') 20px no-repeat;
-          @include image-2x(){
-            background: url('../images/icon_search@2x.png') 20px no-repeat;
-            background-size: 23px 23px;
-          }
-        //}
+    .search-container{
+      border-bottom: 1px solid #bdbdbd;
+      .search-button{
+        width: 50px;
+        height: 46px;
+        border: none;
+        background: url('../images/icon_search.png') 20px no-repeat;
+        float: left;
+        @include image-2x(){
+          background: url('../images/icon_search@2x.png') 20px no-repeat;
+          background-size: 23px 23px;
+        }
       }
-      &:not(.md-input-invalid).md-input-focused{
+      .search{
+        padding: 0;
+        margin: 0;
+        width: calc(100% - 96px);
+        height: 50px;
         input{
-          border-bottom: 2px solid #bdbdbd;
+          height: 50px;
+          border: none;
         }
       }
     }
@@ -180,6 +185,7 @@ md-content{
 .tasks_block{
   width: 57%;
   margin: 0 auto;
+  min-height: calc(100vh - 50px);
   .tasks_block__time{
     color: #b3bbcb;
     margin: 16px 0 6px 6px;
@@ -205,11 +211,9 @@ md-content{
       }
       > div{
         padding: 12px 0 12px 24px;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
+        width: calc(100% - 70px);
+        @include crop-text();
+        line-height: 36px;
         &:before{
           content: '';
           width: 1px;
@@ -217,6 +221,8 @@ md-content{
           display: inline-block;
           background-color: #eaeaea;
           margin-right: 16px;
+          min-width: 1px;
+          float: left;
         }
       }
       &:not(:last-child){
@@ -244,6 +250,17 @@ md-content{
   background-color: #292c33;
   padding: 32px 75px;
   color: #fff;
+  section{
+    position: relative;
+    min-height: calc(100vh - 64px);
+    .button-done{
+      bottom: 0;
+      right: -40px;
+    }
+    form{
+      padding-bottom: 64px;
+    }
+  }
   .sidenav-close {
     color: #fff;
     text-align: center;
@@ -314,8 +331,8 @@ md-content{
 
   .task-button{
     position: absolute;
-    right: 10px;
-    top: 23px;
+    right: -70px;
+    top: -8px;
     button{
       border: none;
       background: none;
@@ -328,12 +345,15 @@ md-content{
     text-align: center;
     margin: 0 0 25px;
     font-weight: 500;
+    @include crop-text();
+    padding-right: 8px;
   }
 
   p{
     font-weight: 400;
     font-size: 12px;
     line-height: 22px;
+    text-align: justify;
   }
 }
 

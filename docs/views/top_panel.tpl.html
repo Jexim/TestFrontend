@@ -1,7 +1,10 @@
 <form name="search" ng-submit="searchTasks()">
-    <md-input-container class="search">
-        <input type="text" aria-label="search" ng-model="searchText">
-    </md-input-container>
+    <div class="search-container">
+        <button class="search-button" type="submit"></button>
+        <md-input-container class="search">
+            <input type="text" aria-label="search" ng-model="searchText">
+        </md-input-container>
+    </div>
 </form>
 
 <md-menu>
