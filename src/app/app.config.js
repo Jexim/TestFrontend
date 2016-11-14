@@ -21,11 +21,6 @@ angular.module('TestFrontend')
                 content: {
                     templateUrl: 'views/content.tpl.html',
                 }
-            },
-            resolve: {
-                user: function(AccountService) {
-                    return AccountService.login();
-                }
             }
         });
 
